@@ -1,0 +1,41 @@
+ToDo:
+- Use pandoc and textutil to convert Word docs to Markdown
+
+General:
+- The game is a FSM, and each player's actions perform a state change, or potentially initiate a chain of state changes.
+- Keep game mechanics simple
+- Keep game mechanics out of code
+- System should read a rules or policy sheet to determine actions
+- Eliminate as many classes as possible
+ 
+Objects:
+Game
+- Controls player turns, orchestrates processing of actions
+
+Player
+- Has hitpoints and performs actions
+
+Gameplay
+1.  Player initiates action
+2.  Chooses acting card(s) and receiving card(s)
+3.  Legality of choices is determined
+4.  Action is resolved
+5.  Player either initiates another action (return to 1) or ends turn
+
+Handling
+1.  Game advances turn, listens to next player
+2.  Generate legal action table
+3.  Action is selected, and passed map of sources to targets
+4.  Action is passed to Game by Player
+5.  Game creates a GameEvent from the action of type Action
+6.  GameState processes GameEvent transition
+7.  Returns to Game, update frontend/players on new GameState
+8.  Advances to next player
+
+What does an action do?
+An action is the product of a source card that causes an effect on one or more target cards
+Game has a GameState which is a map of card states and player states, and a list of GameEvents
+GameEvent performs a transition of the GameState
+- ProcessAction() processes an action according to a HashMap of ArrayList sources to ArrayList targets, produces an ActionResult
+- ActionResult is a transformation of a GameStateMap
+- GameStateMap ProcessActionResult() processes an action result of GameState

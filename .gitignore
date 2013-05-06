@@ -1,0 +1,13 @@
+# Eclipse
+.project
+.settings
+
+# OS X
+.DS_Store
+
+# Java
+bin/
+*.class
+*.jar
+*.war
+*.ear
