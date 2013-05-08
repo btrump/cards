@@ -8,11 +8,25 @@ public class Card {
 	private String flavorText;
 	private CardType cardType;
 	private ArrayList<CardAttribute> attributes = new ArrayList<CardAttribute>();
-	private ArrayList<Action> actions = new ArrayList<Action>();
+	private ArrayList<Spell> spells = new ArrayList<Spell>();
 
 	public Card() {
 		this.name = generateRandomName(LanguageBlock.FANTASY);
 		this.flavorText = "Placeholder text here";
+	}
+	
+	public Card(String name, String flavorText, CardType cardType) {
+		this.name = name;
+		this.flavorText = flavorText;
+		this.cardType = cardType;
+	}
+	
+	public static Card generate(CardType cardType, ArrayList<CardAttribute> attributes, ArrayList<Spell> spells) {
+		Card card = new Card();
+		card.cardType = cardType;
+		card.attributes = attributes;
+		card.spells = spells;
+		return card;
 	}
 
 	public String getName() {
@@ -82,14 +96,14 @@ public class Card {
 	/**
 	 * @return the actions
 	 */
-	public ArrayList<Action> getActions() {
-		return actions;
+	public ArrayList<Spell> getActions() {
+		return spells;
 	}
 
 	/**
 	 * @param actions the actions to set
 	 */
-	public void setActions(ArrayList<Action> actions) {
-		this.actions = actions;
+	public void setActions(ArrayList<Spell> actions) {
+		this.spells = actions;
 	}
 }

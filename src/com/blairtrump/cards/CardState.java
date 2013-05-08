@@ -8,11 +8,11 @@ public class CardState {
 	}
 
 	private Location location;
-	private LinkedList<ActionEffect> effect;
+	private LinkedList<SpellEffect> effect;
 
 	public CardState() {
 		this.location = Location.IN_DECK;
-		this.effect = new LinkedList<ActionEffect>();
+		this.effect = new LinkedList<SpellEffect>();
 	}
 
 	public Location getLocation() {
@@ -23,11 +23,11 @@ public class CardState {
 		this.location = location;
 	}
 
-	public LinkedList<ActionEffect> getEffect() {
+	public LinkedList<SpellEffect> getEffect() {
 		return effect;
 	}
 
-	public void setEffect(LinkedList<ActionEffect> effect) {
+	public void setEffect(LinkedList<SpellEffect> effect) {
 		this.effect = effect;
 	}
 }

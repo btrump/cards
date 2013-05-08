@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class GameEvent {
 	public enum Type {
-		BATTLE, CAST_SPELL, PLAY_SOURCE, RESOLVE_PHASE, SUMMON, TAP_SOURCE, USE_ABILITY;
+		RESOLVE_PHASE, PLAYER_ACTION;
 
-		public void RESOLVE_PHASE(Phase phase) {
+		public void RESOLVE_PHASE(GamePhase phase) {
 			switch (phase) {
 			case DRAW:
 			case REFRESH:
@@ -34,33 +34,11 @@ public class GameEvent {
 	
 	public GameEvent(GameEvent.Type type) {
 		this.type = type;
-
-		switch(type) {
-		case BATTLE:
-			this.battle = new Battle();
-		case RESOLVE_PHASE:
-		case USE_ABILITY:
-		case PLAY_SOURCE:
-		case TAP_SOURCE:
-		case CAST_SPELL:
-		case SUMMON:
-		}
 	}
 	
 	public static GameEvent random() {
 		GameEvent event = new GameEvent();
 		event.setType(GameEvent.Type.random());
-		
-		switch(event.type) {
-		case BATTLE:
-		case RESOLVE_PHASE:
-		case USE_ABILITY:
-		case PLAY_SOURCE:
-		case TAP_SOURCE:
-		case CAST_SPELL:
-		case SUMMON:
-			System.out.println(event.type);
-		}
 		
 		return event;
 	}

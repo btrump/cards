@@ -31,6 +31,7 @@ public class Player {
 		return this.playerId;
 	}
 	
+	@Override
 	public String toString() {
 		return String.format("Name: %s, ID: %s", this.name, this.playerId);
 	}

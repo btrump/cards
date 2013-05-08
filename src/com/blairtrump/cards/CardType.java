@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.List;
 
 public enum CardType {
-	WIZARDRY, WITCHERY, SUMMON, BUILDING, RESOURCE;
+	SPELL, SPIRIT, BUILDING, RESOURCE;
 	private static final List<CardType> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
 	private static final int SIZE = values().length;
 	private static final Random g = new Random(System.nanoTime());
